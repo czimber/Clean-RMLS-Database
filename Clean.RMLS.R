@@ -16,9 +16,8 @@ dim(miss)
 ######################
 # z <- Split.Sample
 ######################
-z <- mls[,c(1,4)]
-######################
 
+z <- mls[,c(1,4)]
 z1 <- do.call(rbind.data.frame, strsplit(as.character(z$List.Price), "-"))
 
 colnames(z1)[1] <- "List"
@@ -45,4 +44,24 @@ colnames(z)[2] <- "List.Price"
 colnames(z)[3] <- "Max.Price"
 z
 ######################
+# Cleans Unit
+require(stringr)
+j <- nrow(mls)
+for (i in 1:j ) {   
+        if(str_detect(mls[i,6], "Lot")) { # removes "Lot"
+                mls[i,6] <- ""
+        }}
+for (i in 1:j ) {   
+        if(str_detect(mls[i,6], "lot")) { # removes "lot"
+                mls[i,6] <- ""
+        }}
+for (i in 1:j ) {   
+        if(str_detect(mls[i,6], "LOT")) { # removes "LOT"
+                mls[i,6] <- ""
+        }}
+mls[,6] <- gsub("-", "",mls[,6])
+mls[,6] <- gsub("#", "",mls[,6])
+mls[,6] <- gsub(" ", "",mls[,6])
+mls[1:800,5:6]
 
+##
