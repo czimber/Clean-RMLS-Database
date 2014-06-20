@@ -51,18 +51,41 @@ for (i in 1:j ) {
         if(str_detect(mls[i,6], "[lL][oO][tT]")) { # removes "Lot"
                 mls[i,6] <- ""
         }}
-#for (i in 1:j ) {   
-#        if(str_detect(mls[i,6], "lot")) { # removes "lot"
-#                mls[i,6] <- ""
-#        }}
-#for (i in 1:j ) {   
-#        if(str_detect(mls[i,6], "LOT")) { # removes "LOT"
-#                mls[i,6] <- ""
-#        }}
+
 mls[,6] <- gsub("-", "",mls[,6])
 mls[,6] <- gsub("#", "",mls[,6])
 mls[,6] <- gsub(" ", "",mls[,6])
 mls[1:800,5:6]
 mls[,5:6]
+mls
 ##
 names(mls)
+sum(str_count(mls[,6], "[Ll][Oo][Tt]"))
+###
+￼# read 'ktop100.txt' file
+￼# read 'ktop100.txt' file
+top105 = readLines("http://www.textfiles.com/music/ktop100.txt")
+dim(top105)
+length(top105)
+
+# str_detect with if else
+z <- "str detect() str extract()
+str extract all() str match()
+str match all() str locate()
+str locate all() str replace()
+str replace all() str split()
+str split fixed()
+Regex functions in stringr Description
+Detect the presence or absence of a pattern in a string Extract first piece of a string that matches a pattern Extract all pieces of a string that match a pattern Extract first matched group from a string
+Extract all matched groups from a string
+Locate the position of the first occurence of a pattern in a string Locate the position of all occurences of a pattern in a string Replace first occurrence of a matched pattern in a string Replace all occurrences of a matched pattern in a string
+Split up a string into a variable number of pieces
+Split up a string into a fixed number of pieces"
+
+x <- "Loop"
+if(str_detect(z,"Split")==TRUE) {
+        x <- 1.06
+} else {
+        x <- x
+}
+x
