@@ -48,20 +48,21 @@ z
 require(stringr)
 j <- nrow(mls)
 for (i in 1:j ) {   
-        if(str_detect(mls[i,6], "Lot")) { # removes "Lot"
+        if(str_detect(mls[i,6], "[lL][oO][tT]")) { # removes "Lot"
                 mls[i,6] <- ""
         }}
-for (i in 1:j ) {   
-        if(str_detect(mls[i,6], "lot")) { # removes "lot"
-                mls[i,6] <- ""
-        }}
-for (i in 1:j ) {   
-        if(str_detect(mls[i,6], "LOT")) { # removes "LOT"
-                mls[i,6] <- ""
-        }}
+#for (i in 1:j ) {   
+#        if(str_detect(mls[i,6], "lot")) { # removes "lot"
+#                mls[i,6] <- ""
+#        }}
+#for (i in 1:j ) {   
+#        if(str_detect(mls[i,6], "LOT")) { # removes "LOT"
+#                mls[i,6] <- ""
+#        }}
 mls[,6] <- gsub("-", "",mls[,6])
 mls[,6] <- gsub("#", "",mls[,6])
 mls[,6] <- gsub(" ", "",mls[,6])
 mls[1:800,5:6]
-
+mls[,5:6]
 ##
+names(mls)
